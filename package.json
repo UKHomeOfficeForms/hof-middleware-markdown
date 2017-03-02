@@ -1,0 +1,27 @@
+{
+  "name": "hof-middleware-markdown",
+  "version": "1.0.0",
+  "description": "i18n-compatible markdown rendering for static content",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOfficeForms/hof-middleware-markdown.git"
+  },
+  "author": "Leonard Martin <hello@lennym.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UKHomeOfficeForms/hof-middleware-markdown/issues"
+  },
+  "homepage": "https://github.com/UKHomeOfficeForms/hof-middleware-markdown#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "markdown": "^0.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-homeoffice": "^2.1.2"
+  }
+}
