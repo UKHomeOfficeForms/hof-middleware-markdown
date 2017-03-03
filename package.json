@@ -4,7 +4,9 @@
   "description": "i18n-compatible markdown rendering for static content",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ."
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint .",
+    "test:unit": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,12 @@
     "markdown": "^0.5.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.16.1",
-    "eslint-config-homeoffice": "^2.1.2"
+    "eslint-config-homeoffice": "^2.1.2",
+    "mocha": "^3.2.0",
+    "reqres": "^1.2.2",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
   }
 }

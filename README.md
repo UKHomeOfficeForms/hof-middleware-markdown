@@ -38,5 +38,6 @@ app.use(markdown(options));
 ### Options
 
 * `method` - Default: `markdown` - sets the name of the method exposed to templates.
+* `ext` - Default: `md` - sets the file extension of content files.
 * `dir` - Default: `content` - sets the subdirectory of `views` in which to find content snippets.
 * `fallbackLang` - Default: [''] - sets the directories in which to look for content if no matching language specific directory exists.
