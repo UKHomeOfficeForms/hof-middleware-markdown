@@ -62,7 +62,8 @@ describe('markdown middleware', () => {
         fs.readFileSync
           .withArgs('/path/to/my/views/content/en/file.md').returns('# hello world')
           .withArgs('/path/to/my/views/content/en/other.md').returns('# hello other')
-          .withArgs('/path/to/my/views/content/en/html.md').returns('<h1>hello html</h1>');
+          .withArgs('/path/to/my/views/content/en/html.md').returns('<h1>hello html</h1>')
+          .withArgs('/path/to/my/views/content/en/table.md').returns('| heading | \n |---| \n | hello table |');
         middleware(req, res, next);
       });
 
@@ -139,6 +140,12 @@ describe('markdown middleware', () => {
 
       it('preserves html', () => {
         expect(res.locals.markdown()('html')).to.equal('<h1>hello html</h1>');
+      });
+
+      it('supports tables', () => {
+        expect(res.locals.markdown()('table'))
+          // eslint-disable-next-line max-len
+          .to.equal('<table>\n<thead>\n<tr>\n<th>heading</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>hello table</td>\n</tr>\n</tbody>\n</table>');
       });
 
     });
