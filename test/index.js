@@ -61,7 +61,8 @@ describe('markdown middleware', () => {
       beforeEach(() => {
         fs.readFileSync
           .withArgs('/path/to/my/views/content/en/file.md').returns('# hello world')
-          .withArgs('/path/to/my/views/content/en/other.md').returns('# hello other');
+          .withArgs('/path/to/my/views/content/en/other.md').returns('# hello other')
+          .withArgs('/path/to/my/views/content/en/html.md').returns('<h1>hello html</h1>');
         middleware(req, res, next);
       });
 
@@ -132,8 +133,12 @@ describe('markdown middleware', () => {
       });
 
       it('returns file contents parsed as markdown', () => {
-        expect(res.locals.markdown()('file')).to.equal('<h1>hello world</h1>');
-        expect(res.locals.markdown()('other')).to.equal('<h1>hello other</h1>');
+        expect(res.locals.markdown()('file')).to.equal('<h1 id="helloworld">hello world</h1>');
+        expect(res.locals.markdown()('other')).to.equal('<h1 id="helloother">hello other</h1>');
+      });
+
+      it('preserves html', () => {
+        expect(res.locals.markdown()('html')).to.equal('<h1>hello html</h1>');
       });
 
     });
