@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/UKHomeOfficeForms/hof-middleware-markdown#readme",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "showdown": "^1.8.2"
   },
   "devDependencies": {
